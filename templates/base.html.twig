@@ -2,10 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Symfony Employment Exchange{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <div id="page_header" style="background: #5eb5e0">
+            <img src="https://static.platzi.com/mf-landings/image/logotipo-platzi-768799552e5f26369e21a807b8a533f7.png"/>
+        {% if app.user %}
+              | {{ app.user }} - <a href="{{ url('app_logout') }}">Log out</a>
+        {% else %}
+               <a href="{{ url('app_login') }}">Log in</a>
+        {%  endif %}
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
