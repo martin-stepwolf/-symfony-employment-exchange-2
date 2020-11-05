@@ -9,7 +9,11 @@
         <div id="page_header" style="background: #5eb5e0">
             <img src="https://static.platzi.com/mf-landings/image/logotipo-platzi-768799552e5f26369e21a807b8a533f7.png"/>
         {% if app.user %}
-              | {{ app.user }} - <a href="{{ url('app_logout') }}">Log out</a>
+            {%  if "ROLE_ADMIN" in app.user.roles %}
+                <a href="{{ url('company_index') }}">Companies</a>
+                <a href="{{ url('user_index') }}">Users</a>
+            {% endif %}
+            | {{ app.user }} - <a href="{{ url('app_logout') }}">Log out</a>
         {% else %}
                <a href="{{ url('app_login') }}">Log in</a>
         {%  endif %}
