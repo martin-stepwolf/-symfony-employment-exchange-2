@@ -21,7 +21,15 @@
             </tr>
             <tr>
                 <th>Owner</th>
-                <td>{{ company.owner }}</td>
+                <td>{{ company.owner }} ({{ company.owner.email }})</td>
+            </tr>
+            <tr>
+                <th>Offers</th>
+                <td>
+                {% for offer in company.offers %}
+                <b>{{ offer.title }}</b> : {{ offer.description }} <br>
+                {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>

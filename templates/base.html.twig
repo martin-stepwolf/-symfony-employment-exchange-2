@@ -13,6 +13,9 @@
                 <a href="{{ url('company_index') }}">Companies</a>
                 <a href="{{ url('user_index') }}">Users</a>
             {% endif %}
+            {%  if "ROLE_COMPANY" in app.user.roles %}
+                <a href="{{ url('offer_index') }}">Company Offers</a>
+            {% endif %}
             | {{ app.user }} - <a href="{{ url('app_logout') }}">Log out</a>
         {% else %}
                <a href="{{ url('app_login') }}">Log in</a>

@@ -41,6 +41,11 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Company::class, mappedBy="owner")
+     */
+    private $company;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,5 +139,10 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
     }
 }

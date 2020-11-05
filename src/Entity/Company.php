@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CompanyRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +34,16 @@ class Company
      */
     private $owner;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="company")
+     */
+    private $offers;
+
+    public function __construct()
+    {
+        $this->offers = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +59,11 @@ class Company
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return  (string)  $this->name;
     }
 
     public function getEmail(): ?string
@@ -69,6 +86,36 @@ class Company
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Offer[]
+     */
+    public function getOffers(): Collection
+    {
+        return $this->offers;
+    }
+
+    public function addOffer(Offer $offer): self
+    {
+        if (!$this->offers->contains($offer)) {
+            $this->offers[] = $offer;
+            $offer->setCompany($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffer(Offer $offer): self
+    {
+        if ($this->offers->removeElement($offer)) {
+            // set the owning side to null (unless already changed)
+            if ($offer->getCompany() === $this) {
+                $offer->setCompany(null);
+            }
+        }
 
         return $this;
     }

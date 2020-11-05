@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offers index {% endblock %}
+
+{% block body %}
+<!-- TODO: set what happen if the user does not have a company-->
+    <h1>Offers index</h1>
+    {{ include('offer/_company_information.html.twig') }}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offer in offers %}
+            <tr>
+                <td>{{ offer.id }}</td>
+                <td>{{ offer.title }}</td>
+                <td>{{ offer.description }}</td>
+                <td>{{ offer.salary }}</td>
+                <td>
+                    <a href="{{ path('offer_show', {'id': offer.id}) }}">show</a>
+                    <a href="{{ path('offer_edit', {'id': offer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no offers found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offer_new') }}">Create new offer</a>
+{% endblock %}
