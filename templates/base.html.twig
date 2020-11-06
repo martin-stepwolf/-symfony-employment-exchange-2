@@ -4,11 +4,15 @@
         <meta charset="UTF-8">
         <title>{% block title %}Symfony Employment Exchange{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <style>
+        body { margin: 1em auto; width: 98%; font: 18px/1.5 sans-serif; }
+        </style>
     </head>
     <body>
         <div id="page_header" style="background: #5eb5e0">
             <img src="https://static.platzi.com/mf-landings/image/logotipo-platzi-768799552e5f26369e21a807b8a533f7.png"/>
         {% if app.user %}
+                <a href="{{ url('applicant_index') }}">Index</a>
             {%  if "ROLE_ADMIN" in app.user.roles %}
                 <a href="{{ url('company_index') }}">Companies</a>
                 <a href="{{ url('user_index') }}">Users</a>

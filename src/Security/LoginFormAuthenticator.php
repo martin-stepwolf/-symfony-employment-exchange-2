@@ -100,14 +100,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         if (in_array('ROLE_ADMIN', $roles)) {
             return new RedirectResponse($this->urlGenerator->generate('user_index'));
         } elseif (in_array('ROLE_COMPANY', $roles)) {
-            // if ($company = $this->entityManager->getRepository(Company::class)->findOneBy([
-            //     'owner' => $token->getUser(),
-            // ])) {
             return new RedirectResponse($this->urlGenerator->generate('offer_index'));
-            // }
-        }
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside ' . __FILE__);
+        } else return new RedirectResponse($this->urlGenerator->generate('applicant_index'));
     }
 
     protected function getLoginUrl()

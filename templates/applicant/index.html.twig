@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <h1>Available offer</h1>
+    <div id="flash-messages">
+        {% for messages in app.flashes %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Company</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offer in offers %}
+            <tr>
+                <td>{{ offer.title }}</td>
+                <td>{{ offer.description }}</td>
+                <td>{{ offer.company }}</td>
+                <td>{{ offer.salary}}</td>
+                <td>
+                    <a href="{{ path('applicant_apply', {'id': offer.id}) }}">apply</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no offers found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

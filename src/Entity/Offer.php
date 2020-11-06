@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OfferRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Offer
      * @ORM\ManyToOne(targetEntity=Company::class, inversedBy="offers")
      */
     private $company;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="offers")
+     */
+    private $applicants;
+
+    public function __construct()
+    {
+        $this->applicants = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,30 @@ class Offer
     public function setCompany(?Company $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getApplicants(): Collection
+    {
+        return $this->applicants;
+    }
+
+    public function addApplicant(User $applicant): self
+    {
+        if (!$this->applicants->contains($applicant)) {
+            $this->applicants[] = $applicant;
+        }
+
+        return $this;
+    }
+
+    public function removeApplicant(User $applicant): self
+    {
+        $this->applicants->removeElement($applicant);
 
         return $this;
     }

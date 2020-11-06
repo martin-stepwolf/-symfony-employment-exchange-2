@@ -13,6 +13,7 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Salary</th>
+                <th>Applicants</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td>{{ offer.title }}</td>
                 <td>{{ offer.description }}</td>
                 <td>{{ offer.salary }}</td>
+                <td>{{ offer.applicants | length }}</td>
                 <td>
                     <a href="{{ path('offer_show', {'id': offer.id}) }}">show</a>
                     <a href="{{ path('offer_edit', {'id': offer.id}) }}">edit</a>

@@ -24,6 +24,14 @@
                 <th>Salary</th>
                 <td>{{ offer.salary }}</td>
             </tr>
+            <tr>
+                <th>Applicants</th>
+                <td>
+                {% for applicant in offer.applicants %}
+                <b>{{ applicant.name }}</b> : {{ applicant.email }} <br>
+                {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
