@@ -27,9 +27,16 @@ class ApplicantController extends AbstractController
      */
     public function apply(Offer $offer, EntityManagerInterface $entityManager)
     {
+        // TODO: use IsGranted to manage access
         $user = $this->getUser();
         if ($user == null)
-            return $this->redirectToRoute('app_register');
+            return $this->redirectToRoute('app_login');
+        $roles = $this->getUser()->getRoles();
+        if (!in_array('ROLE_APPLICANT', $roles)) {
+            $this->addFlash('danger', 'Rejected request, use an normal account to apply for an offer.');
+            return $this->redirectToRoute('applicant_index');
+        }
+
         $offer->addApplicant($user);
         $entityManager->persist($offer);
         try {

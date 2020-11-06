@@ -23,6 +23,14 @@
                 <th>Roles</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
+            <tr>
+                <th>Applied offers</th>
+                <td>
+                {% for offer in user.offers %}
+                <b>{{ offer.company }}</b> : {{ offer.title }} <br>
+                {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

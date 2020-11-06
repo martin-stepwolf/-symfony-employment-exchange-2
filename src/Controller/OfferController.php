@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * @Route("/offer")
+ * @Route("/company/offer")
  */
 class OfferController extends AbstractController
 {
