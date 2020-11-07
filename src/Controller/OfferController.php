@@ -78,6 +78,11 @@ class OfferController extends AbstractController
      */
     public function show(Offer $offer): Response
     {
+        /**
+         * TODO: improve the security, 
+         * other users with company 
+         * cannot access to others offers
+         */
         return $this->render('offer/show.html.twig', [
             'offer' => $offer,
         ]);

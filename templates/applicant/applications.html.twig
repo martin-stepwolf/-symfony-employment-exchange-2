@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Applied offers{% endblock %}
 
 {% block body %}
-    <h1>Available offer</h1>
+    <h1>Applied offers</h1>
     <div id="flash-messages">
         {% for messages in app.flashes %}
         {% for message in messages %}
@@ -29,20 +29,16 @@
                 <td>{{ offer.company }}</td>
                 <td>{{ offer.salary}}</td>
                 <td>
-                    <a href="{{ path('applicant_apply', {'id': offer.id}) }}">apply</a>
+                    {{ include('applicant/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no offers found</td>
+                <td colspan="4">no applied offers found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    {%  if app.user %}
-        {%  if "ROLE_APPLICANT" in app.user.roles %}
-        <p><a href="{{ url('applicant_list') }}">Look your applied offers</a></p>
-        {% endif %}
-    {% endif %}
+    <p><a href="{{ url('applicant_index') }}">Look all the offers</a></p>
 
 {% endblock %}
