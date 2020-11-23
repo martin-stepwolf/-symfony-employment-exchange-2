@@ -6,6 +6,15 @@ _Website to find your dream job and post offers as company._
 
 Personal project to learn [Symfony framework](https://symfony.com/) and show my skills as web developer. 
 
+## Achievements
+
+As [Laravel](https://laravel.com/) developer, I knew already about Composer, ORM, MVC pattern, migration, etc.
+I found some interesting features in this framework as:
+
+- Learn [Twig](https://twig.symfony.com/) and the [Forms](https://symfony.com/doc/current/forms.html).
+- Learn the powerful console, creating a CRUD whit its table and its relation is possible whit almost just commands.
+- Manage the security, routes, entities, controllers etc as Symfony works.
+
 ## Getting Started 🚀
 
 These instructions will get you a copy of the project up and running on your local machine.
