@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Symfony Employment Exchange{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <style>
-        body { margin: 1em auto; width: 98%; font: 18px/1.5 sans-serif; }
-        </style>
+        {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
-        <div id="page_header" style="background: #5eb5e0">
-            <img src="https://static.platzi.com/mf-landings/image/logotipo-platzi-768799552e5f26369e21a807b8a533f7.png"/>
+        <nav>
+            <span class="icon">Symfony Employment Exchange</span>
             <a href="{{ url('applicant_index') }}">Index</a>
         {% if app.user %}
             {%  if "ROLE_APPLICANT" in app.user.roles %}
@@ -27,8 +27,9 @@
         {% else %}
                <a href="{{ url('app_login') }}">Log in</a>
         {%  endif %}
-        </div>
+        </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <footer>Symfony Employment Exchange.</footer>
     </body>
 </html>

@@ -1,0 +1,27 @@
+@import "variables";
+
+body {
+  background: $background-color;
+  margin: 0px;
+  font: 18px/1.5 sans-serif;
+  color: $text-color;
+  nav {
+    background: $primary-color;
+    padding: 20px;
+    span {
+      font-weight: bold;
+    }
+  }
+  footer {
+    text-align: center;
+    width: 100%;
+    @media screen and (max-height: 800px) {
+      position: fixed;
+      bottom: 0px;
+    }
+  }
+}
+
+a {
+  color: $secondary-color;
+}
