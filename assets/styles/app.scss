@@ -1,27 +1,52 @@
 @import "variables";
+@import "elements";
+
+// TODO: Implement responsive design
 
 body {
   background: $background-color;
   margin: 0px;
   font: 18px/1.5 sans-serif;
   color: $text-color;
-  nav {
+  header nav {
     background: $primary-color;
     padding: 20px;
     span {
       font-weight: bold;
     }
+    li {
+      float: right;
+      margin-left: 3em;
+      list-style: none;
+     a {
+       text-decoration: none;
+      } 
+      a:hover {
+        color: $text-color;
+     }
+    }
   }
+
+  main {
+    margin: 15px;
+    justify-content: center;
+    text-align: center;
+    h1 {
+      text-align: center;
+    }
+    .container {
+      margin: auto;
+    }
+    margin-bottom: 34px;
+  }
+
   footer {
     text-align: center;
     width: 100%;
+    background-color: $background-color;
     @media screen and (max-height: 800px) {
       position: fixed;
       bottom: 0px;
     }
   }
-}
-
-a {
-  color: $secondary-color;
 }

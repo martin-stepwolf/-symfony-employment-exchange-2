@@ -1,0 +1,58 @@
+table {
+    text-align: left;
+    margin:auto;
+    border: 1px solid $secondary-color;
+    th, td {
+        border: 1px solid $secondary-color;
+    }
+}
+
+.container > form:first-child {
+    padding: 34px;
+    max-width: 400px;
+    background-color: #E7E7E7;
+    margin: 0 auto;
+    input, select{
+        margin-bottom: 15px;
+        width: 100%;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box; 
+        border: none; 
+        color: $secondary-color; 
+        font-size: 1em;
+        resize: horizontal; 
+      }
+      button {
+        justify-content: center;
+         padding: 10px 45px 10px 45px;
+         border: 0;
+         font-size: 1em; 
+         background-color: $primary-color;;
+        }
+      button:hover{
+        color: $text-color;
+        background-color: $secondary-color;;
+      }
+}
+
+a {
+    color: $secondary-color;
+}
+
+a:hover {
+    color: $primary-color;
+}
+
+.btn {
+    color: $text-color;
+    background-color: $primary-color;
+}
+.btn:hover {
+    background-color: $secondary-color;
+}
+
+#flash-messages{
+    font-weight: bold;
+    color: $success-color;
+}

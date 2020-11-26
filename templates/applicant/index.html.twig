@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Index{% endblock %}
+{% block section %}Available offers{% endblock %}
 
 {% block body %}
-    <h1>Available offer</h1>
     <div id="flash-messages">
         {% for messages in app.flashes %}
         {% for message in messages %}
@@ -11,7 +11,7 @@
         {% endfor %}
         {% endfor %}
     </div>
-    <table class="table">
+    <table>
         <thead>
             <tr>
                 <th>Title</th>

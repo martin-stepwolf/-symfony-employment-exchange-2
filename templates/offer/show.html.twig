@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Offer{% endblock %}
+{% block title %}Show offer{% endblock %}
+{% block section %}Offer details{% endblock %}
 
 {% block body %}
-    <h1>Offer</h1>
     {{ include('offer/_company_information.html.twig') }}
 
-    <table class="table">
+    <table>
         <tbody>
             <tr>
                 <th>Id</th>

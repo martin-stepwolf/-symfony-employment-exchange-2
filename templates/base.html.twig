@@ -9,26 +9,33 @@
         {% endblock %}
     </head>
     <body>
-        <nav>
-            <span class="icon">Symfony Employment Exchange</span>
-            <a href="{{ url('applicant_index') }}">Index</a>
-        {% if app.user %}
-            {%  if "ROLE_APPLICANT" in app.user.roles %}
-                <a href="{{ url('applicant_list') }}">Applied offers</a>
-            {% endif %}
-            {%  if "ROLE_ADMIN" in app.user.roles %}
-                <a href="{{ url('company_index') }}">Companies</a>
-                <a href="{{ url('user_index') }}">Users</a>
-            {% endif %}
-            {%  if "ROLE_COMPANY" in app.user.roles %}
-                <a href="{{ url('offer_index') }}">Company Offers</a>
-            {% endif %}
-            | {{ app.user }} - <a href="{{ url('app_logout') }}">Log out</a>
-        {% else %}
-               <a href="{{ url('app_login') }}">Log in</a>
-        {%  endif %}
-        </nav>
-        {% block body %}{% endblock %}
+        <header>
+            <nav>
+                <span class="icon">Symfony Employment Exchange</span>
+                {% if app.user %}
+                <li>{{ app.user }} ({{ app.user.roles[1]|default('') }}) | <a href="{{ url('app_logout') }}">Log out</a></li>
+                {%  if "ROLE_APPLICANT" in app.user.roles %}
+                <li><a href="{{ url('applicant_list') }}">Applied offers</a></li>
+                {% endif %}
+                {%  if "ROLE_ADMIN" in app.user.roles %}
+                <li><a href="{{ url('company_index') }}">Companies</a></li>
+                <li><a href="{{ url('user_index') }}">Users</a></li>
+                {% endif %}
+                {%  if "ROLE_COMPANY" in app.user.roles %}
+                <li><a href="{{ url('offer_index') }}">Company Offers</a></li>
+                {% endif %}
+                {% else %}
+                <li><a href="{{ url('app_login') }}">Log in</a></li>
+                {%  endif %}
+                <li><a href="{{ url('applicant_index') }}">Index</a></li>
+            </nav>
+        </header>
+        <main>
+            <h2>{% block section %}{% endblock %}</h2>
+            <div class="container">
+                {% block body %}{% endblock %}
+            </div>
+            </main>
         {% block javascripts %}{% endblock %}
         <footer>Symfony Employment Exchange.</footer>
     </body>
