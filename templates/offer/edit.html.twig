@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit offer{% endblock %}
-{% block section %}Edit offer{% endblock %}
+{% block section %}
+Edit offer
+    <small>
+        {{ include('offer/_company_information.html.twig') }}
+    </small>
+{% endblock %}
 
 {% block body %}
-    {{ include('offer/_company_information.html.twig') }}
 
     {{ include('offer/_form.html.twig', {'button_label': 'Update'}) }}
 

@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>{% block title %}Symfony Employment Exchange{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
         {% block stylesheets %}
         {# 'app' must match the first argument to addEntry() in webpack.config.js #}
         {{ encore_entry_link_tags('app') }}
@@ -37,6 +40,10 @@
             </div>
             </main>
         {% block javascripts %}{% endblock %}
-        <footer>Symfony Employment Exchange.</footer>
+        <footer>
+            Personal project by <a href="http://www.martin-stepwolf.com" target="_blank" rel="noopener noreferrer">martin-stepwolf</a>.<br>
+            <a href="https://github.com/martin-stepwolf/symfony-employment-exchange">Source code</a> <br>
+            Note: Company and Admin roles are given just to contributors.  
+        </footer>
     </body>
 </html>

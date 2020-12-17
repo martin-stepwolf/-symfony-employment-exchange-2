@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Offers index {% endblock %}
-{% block section %}Offers you have posted {% endblock %}
+{% block section %}
+    Offers you have posted 
+    <small>
+        {{ include('offer/_company_information.html.twig') }}
+    </small>    
+{% endblock %}
 
 {% block body %}
 <!-- TODO: set what happen if the user does not have a company-->
-    {{ include('offer/_company_information.html.twig') }}
     <table>
         <thead>
             <tr>

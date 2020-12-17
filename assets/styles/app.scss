@@ -1,52 +1,79 @@
-@import "variables";
 @import "elements";
 
-// TODO: Implement responsive design
+// TODO: Improve the design or use a Framework css
+
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #0f0f0f;
+  --primary-color: #498CAD;
+  --secondary-color: #465861;
+  --success-color: #49ad49;
+  --error-color: #ad4949;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Serif Pro', serif;
+}
 
 body {
-  background: $background-color;
+  background: var(--bg-color);
   margin: 0px;
-  font: 18px/1.5 sans-serif;
-  color: $text-color;
+  color: var(--text-color);
   header nav {
-    background: $primary-color;
-    padding: 20px;
+    background: var(--primary-color);
+    padding: 2rem;
     span {
       font-weight: bold;
+      padding: 1rem;
     }
     li {
-      float: right;
-      margin-left: 3em;
-      list-style: none;
+      @media (min-width: 600px) {
+        float: right;
+        list-style: none;
+      }
+      margin-left: 3rem;
      a {
        text-decoration: none;
+       color: var(--bg-color);
       } 
       a:hover {
-        color: $text-color;
+        color: var(--text-color);
      }
     }
   }
 
   main {
-    margin: 15px;
+    @media (min-width: 900px) {
+      margin: 3rem 12rem;
+    }
+    @media (min-width: 600px) and (max-width: 900px) {
+      margin: 3rem 6rem;
+    }
+    @media (max-width: 600px) {
+      margin: 3rem 1rem;
+    }
     justify-content: center;
     text-align: center;
-    h1 {
-      text-align: center;
+    h2 {
+      padding-bottom: 1rem;
     }
     .container {
+      background-color: #E7E7E7;
+      border: 3px solid var(--secondary-color);
+      padding: 1rem;
       margin: auto;
+      overflow-x:auto;
     }
-    margin-bottom: 34px;
   }
 
   footer {
     text-align: center;
+    font-weight: bold;
     width: 100%;
-    background-color: $background-color;
-    @media screen and (max-height: 800px) {
-      position: fixed;
-      bottom: 0px;
-    }
+    padding: 1.5rem 0;
+    background: lightgray;
   }
 }

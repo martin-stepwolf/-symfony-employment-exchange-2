@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Show offer{% endblock %}
-{% block section %}Offer details{% endblock %}
+{% block section %}
+    Offer details
+    <small>
+        {{ include('offer/_company_information.html.twig') }}
+    </small>
+    {% endblock %}
 
 {% block body %}
-    {{ include('offer/_company_information.html.twig') }}
-
     <table>
         <tbody>
             <tr>

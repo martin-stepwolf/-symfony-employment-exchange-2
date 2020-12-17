@@ -1,58 +1,72 @@
 table {
+    width: 100%;
+    max-width: 50rem;
     text-align: left;
     margin:auto;
-    border: 1px solid $secondary-color;
+    border: 1px solid var(--secondary-color);
     th, td {
-        border: 1px solid $secondary-color;
+        border: 1px solid var(--secondary-color);
+        padding: .5rem;
     }
 }
 
-.container > form:first-child {
-    padding: 34px;
-    max-width: 400px;
-    background-color: #E7E7E7;
+.container form:first-child {
+    padding: 1rem;
+    max-width: 20rem;
+    background-color: var(--bg-color);
     margin: 0 auto;
-    input, select{
-        margin-bottom: 15px;
-        width: 100%;
-        padding: 10px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box; 
-        border: none; 
-        color: $secondary-color; 
-        font-size: 1em;
-        resize: horizontal; 
-      }
-      button {
-        justify-content: center;
-         padding: 10px 45px 10px 45px;
-         border: 0;
-         font-size: 1em; 
-         background-color: $primary-color;;
-        }
-      button:hover{
-        color: $text-color;
-        background-color: $secondary-color;;
-      }
+    input, select {
+        margin-bottom: 1rem;
+        border: 1px solid var(--secondary-color); 
+        color: var(--secondary-color); 
+        font-size: 1rem;
+    }
+    input{
+        padding: .75rem;
+    }
+    label {
+        margin: 0rem .5rem;
+    }
+    button {
+    justify-content: center;
+        padding: 1rem 3rem;
+        border: 0;
+        font-size: 1em; 
+        background-color: var(--primary-color);
+    }
+    button:hover{
+    color: var(--bg-color);
+    }
 }
 
+.container .form-login
+    input, label {
+        width: 100%;
+    }
 a {
-    color: $secondary-color;
+    color: var(--primary-color);
 }
 
 a:hover {
-    color: $primary-color;
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 
 .btn {
-    color: $text-color;
-    background-color: $primary-color;
+    color: var(--text-color);
+    background-color: var(--primary-color);
 }
 .btn:hover {
-    background-color: $secondary-color;
+    color: var(--bg-color);
 }
 
 #flash-messages{
     font-weight: bold;
-    color: $success-color;
+    color: var(--success-color);
+}
+
+.alert-danger
+{
+    font-weight: bold;
+    color: var(--error-color);
 }
