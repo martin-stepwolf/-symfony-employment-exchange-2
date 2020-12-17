@@ -15,6 +15,7 @@ I found some interesting features in this framework as:
 - Learn the **powerful console**, **creating CRUDs** with its table and its relation is possible with almost just commands.
 - **Manage the security, routes, entities, controllers etc as Symfony works**.
 - Implement design and styles (with [Sass](https://sass-lang.com/)) as Symfony suggest in its [documentation](https://symfony.com/doc/current/frontend.html).
+- Use [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) to fill the database with fake data.
 
 ## Getting Started 🚀
 
@@ -52,6 +53,12 @@ Then generate the database
 
 ```
 php bin/console doctrine:migrations:migrate
+```
+
+Finally load the fake set of data into a database:
+
+```
+php bin/console doctrine:fixtures:load
 ```
 
 ## Running the project :computer:
