@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+    max-width: 50rem;
+    text-align: left;
+    margin:auto;
+    border: 1px solid $color-secondary;
+    th, td {
+        border: 1px solid $color-secondary;
+        padding: .5rem;
+    }
+}

@@ -1,0 +1,27 @@
+// Branding colors
+$color-brand: #498cad;
+$color-secondary: #465861;
+$color-text: #0f0f0f;
+$color-background: #f0f0f0;
+$color-container: #E7E7E7;
+$color-footer: lightgray;
+
+// Textures
+$element-variants: primary success warning error info;
+:root {
+    --color-primary: $color-brand;
+    --color-success: #49ad49;
+    --color-warning: #ddd058;
+    --color-error: #ad4949;
+    --color-info: #52c5bf;
+}
+
+// Typography
+$base-font: "Source Serif Pro";
+$base-font-size: 16px;
+
+$button-color: red;
+$button-background-color: red;
+
+// Constant
+$main-padding: 1rem;

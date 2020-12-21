@@ -1,0 +1,22 @@
+header nav {
+  background: $color-brand;
+  padding: 2rem;
+  span {
+    font-weight: bold;
+    padding: 1rem;
+  }
+  li {
+    @include media('desktop-m') {
+      float: right;
+      list-style: none;
+    }
+    margin-left: 3rem;
+    a {
+      text-decoration: none;
+      color: $color-background;
+      &:hover {
+        color: $color-text;
+      }
+    }
+  }
+}

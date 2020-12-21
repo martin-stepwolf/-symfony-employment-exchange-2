@@ -1,0 +1,13 @@
+%btn {
+  width: 50px;
+  &.hover {
+    color: $color-background;
+  }
+}
+
+@each $variant in $element-variants {
+  .btn--#{$variant} {
+    @extend %btn;
+    color: var(--color-#{$variant});
+  }
+}

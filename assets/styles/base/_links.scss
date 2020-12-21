@@ -1,0 +1,7 @@
+.a {
+  color: $color-brand;
+  &:hover {
+    color: $color-secondary;
+    font-weight: bold;
+  }
+}

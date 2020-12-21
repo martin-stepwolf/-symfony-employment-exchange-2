@@ -1,0 +1,18 @@
+$fs: (
+  big: 24px,
+  normal: 16px,
+  small: 14px,
+  x-small: 12px
+);
+
+$indexes:(
+	root: 1000,
+	carrousel: 101,
+	tooltip: 102,
+	nav-menu: 103,
+  modal: 104
+);
+
+@function setIndex($layer){
+	@return map-get($indices, $layer);
+}

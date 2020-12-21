@@ -1,0 +1,10 @@
+%alert {
+  font-weight: bold;
+}
+
+@each $variant in $element-variants {
+  .alert--#{$variant} {
+    @extend %alert;
+    color: var(--color-#{$variant});
+  }
+}

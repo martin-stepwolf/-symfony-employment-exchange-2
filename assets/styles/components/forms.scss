@@ -1,0 +1,42 @@
+.form {
+    padding: 1rem;
+    max-width: 20rem;
+    background-color: $color-background;
+    margin: 0 auto;
+    input, select {
+        margin-bottom: 1rem;
+        border: 1px solid $color-secondary; 
+        color: $color-secondary; 
+        font-size: 1rem;
+    }
+    input{
+        padding: .75rem;
+    }
+    label {
+        margin: 0rem .5rem;
+    }
+    button {
+        justify-content: center;
+        padding: 1rem 3rem;
+        border: 0;
+        font-size: 1em; 
+        background-color: $color-brand;
+        &:hover{
+        color: $color-background;
+        }
+    }
+}
+
+.form--login {
+    input, label {
+        width: 100%;
+    }
+} 
+
+.form--delete {
+    button {
+        &:hover {
+            background-color: var(--color-warning);
+        }
+    }
+}

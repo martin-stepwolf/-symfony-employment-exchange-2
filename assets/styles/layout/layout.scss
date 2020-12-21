@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $base-font, serif;
+  }
+  
+  body {
+    background: $color-background;
+    color: $color-text;
+  
+    main {
+    justify-content: center;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    @include media('mobile-only') {
+      margin-left: .5rem;
+      margin-right: .5rem;
+    }
+    @include media('desktop-s') {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    @include media('desktop-m') {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+    @include media('desktop-l') {
+      margin-left: 6rem;
+      margin-right: 6rem;
+    }
+      @include media('desktop-xl') {
+        margin-left: 12rem;
+        margin-right: 12rem;
+      }
+      h2 {
+        padding-bottom: 1rem;
+      }
+      .container {
+        background-color: $color-container;
+        border: 3px solid $color-secondary;
+        padding: 1rem;
+        margin: auto;
+        overflow-x:auto;
+      }
+    }
+  }
