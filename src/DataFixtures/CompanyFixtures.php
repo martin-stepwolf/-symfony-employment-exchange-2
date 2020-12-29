@@ -13,8 +13,8 @@ class CompanyFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $company = new Company();
-        $company->setName('Symfony Employment Exchange');
-        $company->setEmail('test_mail@s-e-e.com');
+        $company->setName('Symfony Job Board');
+        $company->setEmail('test_mail@sjb.com');
         $company->setOwner($this->getReference(AdminFixtures::ADMIN_USER_REFERENCE));
         $manager->persist($company);
         $manager->flush();

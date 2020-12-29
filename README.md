@@ -1,4 +1,4 @@
-# Symfony Employment Exchange
+# Symfony Job Board
 
 _Website to find your dream job and post offers as company._
 
@@ -96,7 +96,7 @@ php -S localhost:8080
 
 ## Contributing
 
-You're free to contribute to this project by submitting [issues](https://github.com/martin-stepwolf/symfony-employment-exchange/issues) and/or [pull requests](https://github.com/martin-stepwolf/symfony-employment-exchange/pulls).
+You're free to contribute to this project by submitting [issues](https://github.com/martin-stepwolf/symfony-job-board/issues) and/or [pull requests](https://github.com/martin-stepwolf/symfony-job-board/pulls).
 
 ## License
 

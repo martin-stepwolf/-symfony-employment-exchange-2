@@ -24,7 +24,7 @@ class OfferFixtures extends Fixture
         // test user that apply in the offers
         $applicant = new User();
         $applicant->setName('Normal user');
-        $applicant->setEmail('user@see.com');
+        $applicant->setEmail('user@sjb.com');
         $applicant->setRoles(['ROLE_APPLICANT']);
         $password = $this->encoder->encodePassword($applicant, 'symfony');
         $applicant->setPassword($password);

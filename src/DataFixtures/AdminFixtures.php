@@ -11,7 +11,7 @@ class AdminFixtures extends Fixture
 {
     /**
      * Admin, Company and Offer Fixtures creates 2 users for testing all the application
-     * admin@see.com and user@see.com with password by default 'symfony
+     * admin@sjb.com and user@sjb.com with password by default 'symfony
      * MixFixtures just fill the database
      */
 
@@ -26,8 +26,8 @@ class AdminFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $admin = new User();
-        $admin->setName('Adminitrator');
-        $admin->setEmail('admin@see.com');
+        $admin->setName('Administrator');
+        $admin->setEmail('admin@sjb.com');
         $admin->setRoles(['ROLE_ADMIN', 'ROLE_COMPANY']);
         $password = $this->encoder->encodePassword($admin, 'symfony');
         $admin->setPassword($password);
