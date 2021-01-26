@@ -16,6 +16,7 @@ I found some interesting features in this framework as:
 - **Manage the security, routes, entities, controllers etc as Symfony works**.
 - Implement design and styles (with [Sass](https://sass-lang.com/)) as Symfony suggest in its [documentation](https://symfony.com/doc/current/frontend.html).
 - Use [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) to fill the database with fake data.
+- Implement docker and docker compose for a better environment.
 
 ## Getting Started 🚀
 
@@ -25,62 +26,59 @@ These instructions will get you a copy of the project up and running on your loc
 
 The programs you need are:
 
--   [Composer](https://getcomposer.org/download/).
--   [Node.js](https://nodejs.org/en/download/).
--   Database and a web server with PHP.
+-   [Docker](https://www.docker.com/get-started).
+-   [Docker compose](https://docs.docker.com/compose/install/).
 
 ### Installing 🔧
 
-Duplicate the file .env as .env.local and set your credential for the database in:
+Note: The database configuration are defined in .env, and its used in docker-compose, if you want to personalize it create a copy from .env to .env.local and/or create a docker-compose.override.yml:
+
+First create the image (php:7.4-composer-npm) and run the services (php, nginx and mysql):
 
 ```
-DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7
+docker-compose up
 ```
 
-Then install the PHP packages.
+Note: The next steps can be automated bu running
 
 ```
-composer install
+sh ./installation.sh
 ```
 
-Then install the JavaScript packages with npm.
+Then install the dependeces.
 
 ```
-npm install
+docker-compose exec app composer install
+docker-compose exec app npm install
 ```
 
 Then generate the database
 
 ```
-php bin/console doctrine:migrations:migrate
+docker-compose exec app php bin/console doctrine:migrations:migrate
 ```
 
 Finally load the fake set of data into a database:
 
 ```
-php bin/console doctrine:fixtures:load
+docker-compose exec app php bin/console doctrine:fixtures:load
 ```
 
 ## Running the project :computer:
 
-First generate the public files
+Each time SASS and JavaScript files are updated you need to run:
 
 ```
-npm run dev
+docker-compose exec app npm run dev
 ```
 
-Note: Each time SASS and JavaScript files are updated you need to run the past command, to make it easier run:
+To make it automated run:
 
 ```
-npm run watch
+docker-compose exec app npm run watch
 ```
 
-Finally run the serve
-
-```
-cd public
-php -S localhost:8080
-```
+And now you have all the environment, the nginx server is in the port 8000 (e.g http://127.0.0.1:8000/).
 
 ### Main functionality ⚙️
 
@@ -101,3 +99,9 @@ You're free to contribute to this project by submitting [issues](https://github.
 ## License
 
 This personal project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+
+## References :books:
+
+- [Tutorial Laravel with Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-set-up-laravel-with-docker-compose-on-ubuntu-20-04)
+- [Docker course](https://platzi.com/clases/docker/)
+- [SASS course](https://platzi.com/clases/sass/)
