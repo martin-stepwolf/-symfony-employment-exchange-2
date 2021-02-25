@@ -8,7 +8,7 @@ Personal project to learn [Symfony framework](https://symfony.com/).
 
 ### Achievements :star2:
 
-As Laravel programmer I achieved:
+As PHP Developer (with experience in Laravel) I achieved:
 
 - Learn [Twig](https://twig.symfony.com/) and the [Forms](https://symfony.com/doc/current/forms.html).
 - Implemented entities, their relationship and CRUD (all with almost only commands).
@@ -35,35 +35,37 @@ The programs you need are:
 
 Note: The database configuration are defined in .env, and its used in docker-compose, if you want to personalize it create a copy from .env to .env.local and/or create a docker-compose.override.yml:
 
-First create the image (php:7.4-composer-npm) and run the services (php, nginx and mysql):
+First create the image (php:7.4-composer-npm), the volume for the database (laravel-vue-intranet_mysql) and run the services (php, nginx and mysql):
 
 ```
 docker-compose up
 ```
 
-Note: The next steps can be automated by running
+Note: You can run the last command in the background with `docker-compose up -d`.
+
+Now you have all the environment ready, for the next commands you need to be inside of the app container with:
 
 ```
-sh ./install.sh
+docker-compose exec app /bin/bash
 ```
 
 Then install the dependencies.
 
 ```
-docker-compose exec app composer install
-docker-compose exec app npm install
+composer install
+npm install
 ```
 
 Then generate the database
 
 ```
-docker-compose exec app php bin/console doctrine:migrations:migrate
+php bin/console doctrine:migrations:migrate
 ```
 
 Finally load the fake set of data into the database:
 
 ```
-docker-compose exec app php bin/console doctrine:fixtures:load
+php bin/console doctrine:fixtures:load
 ```
 
 ---
@@ -75,26 +77,29 @@ docker-compose exec app php bin/console doctrine:fixtures:load
 Each time SASS files are updated you need to run:
 
 ```
-docker-compose exec app npm run dev
+npm run dev
 ```
 
 To make it automated run:
 
 ```
-docker-compose exec app npm run watch
+npm run watch
 ```
 
-And now you have all the environment, the nginx server is in the port 8000 (e.g http://127.0.0.1:8000/).
+And now you have all the environment in the port 8000.
+
+Note: Use `exit` command to exit from the container, `docker-compose down` to delete the containers and `docker volume rm symfony-job-board_mysql` to delete the database volume.
 
 ---
 
 ## Functionality ⚙️
 
 - In /register you can create an account as normal user ["ROLE_APPLICANT"].
-- To be Administrator, set in the database ["ROLE_ADMIN"] in roles column.
+- There is an user with ROLE_ADMIN, its email is `admin@sjb.com` and password `symfony`.
 - As Administrator you can create companies with a normal user as reference(to log in).
 - As company ["ROLE_COMPANY"] you can create offers.
 - As normal user you can watch and apply to offers.
+- There is a user with some application, his email is `user@sjb.com` and password `symfony`.
 
 ---
 

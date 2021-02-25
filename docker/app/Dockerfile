@@ -12,11 +12,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip \
-    npm
-
-# Update npm
-RUN npm install -g npm@latest
+    unzip
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -31,6 +27,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
+
+# Install npm to install JavaScript dependencies
+RUN apt-get update && apt-get install -y npm
+RUN npm install -g npm@latest
 
 # Set working directory
 WORKDIR /var/www
