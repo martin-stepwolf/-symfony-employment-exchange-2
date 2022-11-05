@@ -1,10 +1,12 @@
-# Symfony Job Board ![Status](https://img.shields.io/badge/status-in_rafactoring-yellowgreen) ![Passing](https://img.shields.io/badge/build-passing-green) ![Docker build](https://img.shields.io/badge/docker_build-passing-green)
+# Symfony Job Board ![Status](https://img.shields.io/badge/status-no_longer_maintained-orange) ![Passing](https://img.shields.io/badge/build-passing-green) ![Docker build](https://img.shields.io/badge/docker_build-passing-green)
 
 _Website to find your dream job and post offers as company._
 
-### Project goal by martin-stepwolf :goal_net:
+### Project goal by mascam97
 
 Personal project to learn [Symfony framework](https://symfony.com/). 
+
+Due to this project does not have testing and needs some upgrades, is no longer maintained.
 
 ### Achievements :star2:
 
@@ -33,7 +35,7 @@ The programs you need are:
 
 ### Installing 🔧
 
-Note: The database configuration are defined in .env, and its used in docker-compose, if you want to personalize it create a copy from .env to .env.local and/or create a docker-compose.override.yml:
+Note: The database configuration are defined in .env, and it's used in docker-compose, if you want to personalize it create a copy from .env to .env.local and/or create a docker-compose.override.yml:
 
 First create the image (php:7.4-composer-npm), the volume for the database (laravel-vue-intranet_mysql) and run the services (php, nginx and mysql):
 
@@ -43,7 +45,7 @@ docker-compose up
 
 Note: You can run the last command in the background with `docker-compose up -d`.
 
-Now you have all the environment ready, for the next commands you need to be inside of the app container with:
+Now you have all the environment ready, for the next commands you need to be inside the app container with:
 
 ```
 docker-compose exec app /bin/bash
@@ -62,7 +64,7 @@ Then generate the database
 php bin/console doctrine:migrations:migrate
 ```
 
-Finally load the fake set of data into the database:
+Finally, load the fake set of data into the database:
 
 ```
 php bin/console doctrine:fixtures:load
@@ -95,21 +97,21 @@ Note: Use `exit` command to exit from the container, `docker-compose down` to de
 ## Functionality ⚙️
 
 - In /register you can create an account as normal user ["ROLE_APPLICANT"].
-- There is an user with ROLE_ADMIN, its email is `admin@sjb.com` and password `symfony`.
+- There is a user with ROLE_ADMIN, its email is `admin@sjb.com` and password `symfony`.
 - As Administrator you can create companies with a normal user as reference(to log in).
 - As company ["ROLE_COMPANY"] you can create offers.
-- As normal user you can watch and apply to offers.
+- As normal user you can watch and apply to offer.
 - There is a user with some application, his email is `user@sjb.com` and password `symfony`.
 
 ---
 
 ### Authors
 
-- Martín Campos - [martin-stepwolf](https://github.com/martin-stepwolf)
+- Martín S. Campos - [mascam97](https://github.com/mascam97)
 
 ### Contributing
 
-You're free to contribute to this project by submitting [issues](https://github.com/martin-stepwolf/symfony-job-board/issues) and/or [pull requests](https://github.com/martin-stepwolf/symfony-job-board/pulls).
+You're free to contribute to this project by submitting [issues](https://github.com/mascam97/symfony-job-board/issues) and/or [pull requests](https://github.com/mascam97/symfony-job-board/pulls).
 
 ### License
 
