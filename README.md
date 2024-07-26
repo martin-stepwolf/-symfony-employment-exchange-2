@@ -4,7 +4,7 @@ _Website to find your dream job and post offers as company._
 
 ### Project goal by mascam97
 
-Personal project to learn [Symfony framework](https://symfony.com/). 
+Personal project to learn [Symfony framework](https://symfony.com/).
 
 Due to this project does not have testing and needs some upgrades, is no longer maintained.
 
